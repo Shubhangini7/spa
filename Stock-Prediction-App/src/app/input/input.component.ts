@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from '../search.service';
+
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
@@ -9,10 +10,10 @@ export class InputComponent implements OnInit {
 
   constructor(private searchservice:SearchService) { }
 
- someProperty:string = '';
+ sum:number;
   ngOnInit() {
-    console.log(this.searchservice.car);
-    this.someProperty = this.searchservice.myData();
+//    console.log(this.searchservice.car);
+    this.sum = this.searchservice.myData();
   }
 
 }
