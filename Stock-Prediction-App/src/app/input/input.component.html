@@ -1,3 +1,4 @@
+<body>
 <div class="NewSearch">
   <input type="text" placeholder="Please type Share name " #SearchElement>
   <button type="button" name="button" (click) = "this.getClick(SearchElement.value);">Search</button>
@@ -10,3 +11,21 @@
 		</tr>
 	</table>
 </div>
+<div class="PastSearch" >
+	<h1 style="color:#8E53EF;">Previous Searched Values</h1>
+	<table id='customers'>
+		<tr>
+			<th>Stock Name</th>
+			<th>ereyesterday</th>
+			<th>yesterday</th>
+			<th>today</th>
+      <th></th>
+		</tr>
+		<tr *ngFor = 'let pastWeather of this.pastSearchValue' (click) = 'this.getClick(pastWeather.SearchElement)'>
+			<td>{{pastWeather.SearchElement}}</td>
+			<td *ngFor = 'let value of this.pastWeather.val'>{{value}}</td>
+      <td>{{pastWeather.SearchTime[0]}}{{pastWeather.SearchTime[1]}}{{pastWeather.SearchTime[2]}}{{pastWeather.SearchTime[3]}}{{pastWeather.SearchTime[4]}}</td>
+
+	</table>
+</div>
+</body>
