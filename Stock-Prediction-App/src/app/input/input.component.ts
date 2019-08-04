@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from '../search.service';
-
+import { ActivatedRoute } from '@angular/router';
+import { Stock } from '../stock';
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
@@ -8,12 +9,16 @@ import { SearchService } from '../search.service';
 })
 export class InputComponent implements OnInit {
 
+  private CurrentSearchValue : Stock;
+  private pastSearchValue : Stock[] = []
   constructor(private searchservice:SearchService) { }
 
- sum:number;
   ngOnInit() {
-//    console.log(this.searchservice.car);
-    this.sum = this.searchservice.myData();
   }
-
+  getClick(SearchElement : string): void {
+  	this.CurrentSearchValue = this.searchservice.getClick(SearchElement);
+    //storing Search Results
+    //this.CurrentSearchValue.SearchTime = (new Date()).toTimeString();
+    this.pastSearchValue.push(this.CurrentSearchValue);
+  }
 }

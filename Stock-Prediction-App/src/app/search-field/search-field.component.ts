@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
 import { SearchService } from '../search.service';
+import { ActivatedRoute } from '@angular/router';
+import { Stock } from '../stock';
 
 @Component({
   selector: 'app-search-field',
@@ -11,9 +12,9 @@ export class SearchFieldComponent implements OnInit {
 
   constructor(private searchservice:SearchService) { }
 
-  sum:number;
   ngOnInit() {
-      this.sum = this.searchservice.myData();
   }
+
+
 
 }

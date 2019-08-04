@@ -1,17 +1,23 @@
 import { Injectable } from '@angular/core';
+import { Stock } from './stock';
+import { STOCKS } from './sample-data';
+import { ActivatedRoute } from '@angular/router'
+
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
+
+  private in: Stock[] = STOCKS;
   constructor() { }
 
-  car = ['ford', 'chevrolet', 'buick'];
-  myData()
-  {
-    let a: number = 10;
-    let b: number = 20;
-    let c:number = a + b;
-    return c;
+  getClick(SearchElement: string): Stock{
+  	for(var i = 0; i < this.in.length; i++)
+  	{
+  		if(this.in[i].SearchElement == SearchElement)
+  		{
+  			return this.in[i];
+  		}
+  	}
   }
-
 }
